@@ -63,10 +63,12 @@ def visualize_vanishing_points(vps, image, lines_pts : dict, colors, fig_name):
         for line in lines_pts[key]:
             p0, p1 = line
             plt.plot((p0[0], p1[0]), (p0[1], p1[1]), colors[i])
-            
-        plt.plot([vps[key][0]], [vps[key][1]], colors[i]+'X', markersize=5)
+        
         plt.axis('off')
         plt.tight_layout()
+        
+        plt.savefig("." + fig_name.split('.')[1] + "_lines_vp" + str(i) + '.png') 
+        plt.plot([vps[key][0]], [vps[key][1]], colors[i]+'X', markersize=5)
         plt.savefig("." + fig_name.split('.')[1] + "_vp" + str(i) + '.png') 
         plt.close()
         i = i + 1
