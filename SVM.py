@@ -32,18 +32,6 @@ class Ui_MainWindow(object):
         self.ZButton = QtWidgets.QRadioButton(self.centralwidget)
         self.ZButton.setGeometry(QtCore.QRect(1115, 100, 100, 50))
         self.ZButton.setObjectName("ZButton")
-        """
-# label_height
-        self.label_height = QtWidgets.QLabel(self.centralwidget)
-        self.label_height.setGeometry(QtCore.QRect(820, 510, 430, 50))
-        # input height of camera
-        self.heightLable = QtWidgets.QLabel(self.centralwidget)
-        self.heightLable.setFrameStyle(QtWidgets.QFrame.Box | QtWidgets.QFrame.Plain)
-        self.heightLable.setGeometry(QtCore.QRect(950, 520, 295, 30))
-        self.heightButton = QtWidgets.QPushButton(self.centralwidget)
-        self.heightButton.setGeometry(QtCore.QRect(815, 450, 430, 50))
-        self.heightButton.setObjectName("Input Height")
-"""
         # choose a ground point
         self.label_note = QtWidgets.QLabel(self.centralwidget)
         self.label_note.setGeometry(QtCore.QRect(820, 150, 430, 50))
@@ -115,11 +103,10 @@ class Ui_MainWindow(object):
         # clicked event
         self.pushButton_openImage.clicked.connect(self.openImage)
         self.pushButton_Computation.clicked.connect(self.calibrationCamera)
-        #self.heightButton.clicked.connect(self.inputHeight)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", 'Vanishing Point Camera Computation'))
+        MainWindow.setWindowTitle(_translate("MainWindow", 'Vanishing Point Metrology Computation'))
         self.pushButton_openImage.setText(_translate("MainWindow", "Open Image"))
         self.pushButton_Computation.setText(_translate("MainWindow", "Computation"))        
         self.label_radiobheight.setText(_translate("MainWindow", "Choose point to select:"))
@@ -154,14 +141,6 @@ class Ui_MainWindow(object):
         cols_prop = cols / self.label_image.width()
         self.label_image.mousePressEvent = self.getPosPts
 
-    def inputHeight(self):
-        global h
-
-
-        
-        h, ok = QtWidgets.QInputDialog.getDouble(self.centralwidget, "Camera Height", "Please input camera height：", 0, 0, 20, 4)
-        if ok :
-            self.heightLable.setText(str(h))
 
     def getPosPts(self, event):
         if (self.OriginButton.isChecked()) :

@@ -1,7 +1,0 @@
-import sys
-import cv2
-
-matrix = np.array([[1, 0, 0], [0, 1, -10], [0, 0, 1]])
-warped = warp(image, matrix)
-from skimage.transform import ProjectiveTransform
-warped = warp(image, ProjectiveTransform(matrix=matrix))
